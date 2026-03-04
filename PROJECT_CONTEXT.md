@@ -190,13 +190,19 @@ Tailwind breakpointok: `sm:640px`, `md:768px`, `lg:1024px`
   - `2WaYC` — The Vision
 - **Desktop frame:** `irqxQ`, **Tablet:** `aEJUj`, **Mobile:** `9gb5I`
 
-## 9. Hosting és deploy
+## 9. Fejlesztői környezet
+
+- **Projekt mappa:** `/Users/kulcsartamas/DEV/nolo-sound-web`
+- **Claude Code indítás:** `cd /Users/kulcsartamas/DEV/nolo-sound-web && claude`
+- **Dev szerver:** `npm run dev` → port 3200 (`.claude/launch.json`-ben konfigurálva, preview_start name: `nolo-dev`)
+- ⚠️ Ez egy önálló projekt — NEM a papirmania-next.js része! Mindig ebből a mappából indítsd a Claude Code-ot.
+
+## 10. Hosting és deploy
 
 - **Platform:** Vercel (Hobby tier, non-commercial)
 - **URL:** https://nolo-sound-web.vercel.app
 - **GitHub:** https://github.com/kulcsart/nolo-sound (main branch)
 - **Auto-deploy:** Minden `git push origin main` automatikusan deployol
-- **Dev szerver:** `npm run dev` → port 3200 (launch.json-ben konfigurálva)
 - ⚠️ Ha commercial lesz → Vercel Pro ($20/hó) szükséges
 
 ## 10. Ügyfél API-k — még hiányzó adatok
