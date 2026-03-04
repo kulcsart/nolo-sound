@@ -14,14 +14,14 @@ export default function NewsCard({
   image,
 }: NewsCardProps) {
   return (
-    <article className="flex w-[262px] shrink-0 flex-col gap-4">
+    <article className="news-card-hover flex w-[262px] shrink-0 cursor-pointer flex-col gap-4">
       {/* Image */}
       <div className="relative h-[262px] w-full overflow-hidden bg-espresso">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover opacity-80"
+          className="object-cover opacity-80 transition-transform duration-500 hover:scale-105"
           sizes="262px"
         />
       </div>

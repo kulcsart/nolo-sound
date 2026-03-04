@@ -36,16 +36,17 @@ export default function ArtistBio({ artist }: ArtistBioProps) {
       <div className="flex w-full items-center justify-between py-2">
         <a
           href="#"
-          className="font-[family-name:var(--font-body)] text-[length:var(--text-body)] text-bronze transition-colors hover:text-gold"
+          className="arrow-hover flex items-center gap-1 font-[family-name:var(--font-body)] text-[length:var(--text-body)] text-bronze transition-colors hover:text-gold"
         >
           View Profile
+          <span className="arrow-icon">→</span>
         </a>
         <div className="flex items-center gap-3">
           {artist.social.instagram && (
             <a
               href={artist.social.instagram}
               aria-label={`${artist.name} Instagram`}
-              className="text-bronze transition-colors hover:text-gold"
+              className="social-icon-hover text-bronze hover:text-gold"
             >
               <Instagram className="h-5 w-5" />
             </a>
@@ -54,7 +55,7 @@ export default function ArtistBio({ artist }: ArtistBioProps) {
             <a
               href={artist.social.facebook}
               aria-label={`${artist.name} Facebook`}
-              className="text-bronze transition-colors hover:text-gold"
+              className="social-icon-hover text-bronze hover:text-gold"
             >
               <Facebook className="h-5 w-5" />
             </a>

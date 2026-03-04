@@ -92,3 +92,103 @@ body {
   background-color: var(--color-gold);
   color: var(--color-nearblack);
 }
+
+/* ─── Animations ─── */
+
+/* Scroll indicator bounce */
+@keyframes scroll-bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.4;
+  }
+}
+
+.animate-scroll-bounce {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* Nav link underline animation */
+.nav-link-hover {
+  position: relative;
+}
+
+.nav-link-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.nav-link-hover:hover::after {
+  transform: scaleX(1);
+}
+
+/* News card hover lift */
+.news-card-hover {
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+              box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.news-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Gold glow button hover */
+.btn-gold-glow {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-gold-glow:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(184, 147, 90, 0.3);
+}
+
+/* Form input focus glow */
+.input-focus-glow:focus {
+  box-shadow: 0 0 0 2px rgba(184, 147, 90, 0.15);
+}
+
+/* View Profile arrow hover */
+.arrow-hover .arrow-icon {
+  transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.arrow-hover:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Social icon hover scale */
+.social-icon-hover {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icon-hover:hover {
+  transform: scale(1.15);
+}
+
+/* ─── Accessibility: Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-scroll-bounce {
+    animation: none;
+  }
+}

@@ -27,7 +27,7 @@ export default function Nav() {
           <a
             key={link.href}
             href={link.href}
-            className="font-[family-name:var(--font-body)] text-[length:var(--text-subtitle)] tracking-wider text-ivory transition-colors hover:text-gold"
+            className="nav-link-hover font-[family-name:var(--font-body)] text-[length:var(--text-subtitle)] tracking-wider text-ivory transition-colors hover:text-gold"
           >
             {link.label}
           </a>

@@ -19,7 +19,7 @@ export default function ContactForm() {
           type="text"
           name="name"
           required
-          className="h-[42px] border border-darkbrown bg-nearblack px-3 font-[family-name:var(--font-body)] text-[length:var(--text-body)] text-cream outline-none transition-colors focus:border-gold"
+          className="input-focus-glow h-[42px] border border-darkbrown bg-nearblack px-3 font-[family-name:var(--font-body)] text-[length:var(--text-body)] text-cream outline-none transition-all duration-300 focus:border-gold"
         />
       </div>
 
@@ -32,7 +32,7 @@ export default function ContactForm() {
           type="email"
           name="email"
           required
-          className="h-[42px] border border-darkbrown bg-nearblack px-3 font-[family-name:var(--font-body)] text-[length:var(--text-body)] text-cream outline-none transition-colors focus:border-gold"
+          className="input-focus-glow h-[42px] border border-darkbrown bg-nearblack px-3 font-[family-name:var(--font-body)] text-[length:var(--text-body)] text-cream outline-none transition-all duration-300 focus:border-gold"
         />
       </div>
 
@@ -45,14 +45,14 @@ export default function ContactForm() {
           name="message"
           rows={4}
           required
-          className="resize-none border border-darkbrown bg-nearblack px-3 py-2 font-[family-name:var(--font-body)] text-[length:var(--text-body)] text-cream outline-none transition-colors focus:border-gold"
+          className="input-focus-glow resize-none border border-darkbrown bg-nearblack px-3 py-2 font-[family-name:var(--font-body)] text-[length:var(--text-body)] text-cream outline-none transition-all duration-300 focus:border-gold"
         />
       </div>
 
       {/* Submit button */}
       <button
         type="submit"
-        className="w-full rounded-sm bg-gold px-6 py-3 text-center font-[family-name:var(--font-body)] text-[length:var(--text-date)] font-semibold text-nearblack transition-colors hover:bg-goldshimmer"
+        className="btn-gold-glow w-full rounded-sm bg-gold px-6 py-3 text-center font-[family-name:var(--font-body)] text-[length:var(--text-date)] font-semibold text-nearblack hover:bg-goldshimmer"
       >
         {formLabels.submit}
       </button>

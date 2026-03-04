@@ -1,6 +1,8 @@
 import Image from "next/image";
 import OwnersRow from "../OwnersRow";
 import { about } from "@/lib/content";
+import AnimatedSection from "../animations/AnimatedSection";
+import { StaggerContainer, StaggerItem } from "../animations/StaggerChildren";
 
 export default function AboutSection() {
   return (
@@ -10,42 +12,51 @@ export default function AboutSection() {
     >
       <div className="mx-auto flex w-full flex-col gap-32 lg:flex-row lg:items-center lg:justify-center">
         {/* Text column — The Vision */}
-        <div className="flex max-w-[446px] flex-col gap-10">
-          {/* Label */}
-          <span className="font-[family-name:var(--font-body)] text-[length:var(--text-label)] tracking-[0.125em] text-gold">
-            {about.sectionLabel}
-          </span>
+        <AnimatedSection variant="slide-right" className="flex max-w-[446px] flex-col gap-10">
+          <StaggerContainer staggerDelay={0.12}>
+            {/* Label */}
+            <StaggerItem>
+              <span className="font-[family-name:var(--font-body)] text-[length:var(--text-label)] tracking-[0.125em] text-gold">
+                {about.sectionLabel}
+              </span>
+            </StaggerItem>
 
-          {/* Heading */}
-          <h2 className="font-[family-name:var(--font-heading)] text-[length:var(--text-h2)] text-sand">
-            {about.heading}
-          </h2>
+            {/* Heading */}
+            <StaggerItem>
+              <h2 className="font-[family-name:var(--font-heading)] text-[length:var(--text-h2)] text-sand">
+                {about.heading}
+              </h2>
+            </StaggerItem>
 
-          {/* Divider */}
-          <div
-            className="h-1 w-20"
-            style={{
-              background:
-                "linear-gradient(to right, transparent, #d4a574 58%, transparent)",
-            }}
-          />
+            {/* Divider */}
+            <StaggerItem>
+              <div
+                className="h-1 w-20"
+                style={{
+                  background:
+                    "linear-gradient(to right, transparent, #d4a574 58%, transparent)",
+                }}
+              />
+            </StaggerItem>
 
-          {/* Paragraphs */}
-          {about.paragraphs.map((text, i) => (
-            <p
-              key={i}
-              className="font-[family-name:var(--font-body)] text-[length:var(--text-body)] leading-[1.4] text-cream"
-            >
-              {text}
-            </p>
-          ))}
+            {/* Paragraphs */}
+            {about.paragraphs.map((text, i) => (
+              <StaggerItem key={i}>
+                <p className="font-[family-name:var(--font-body)] text-[length:var(--text-body)] leading-[1.4] text-cream">
+                  {text}
+                </p>
+              </StaggerItem>
+            ))}
 
-          {/* Owners */}
-          <OwnersRow />
-        </div>
+            {/* Owners */}
+            <StaggerItem>
+              <OwnersRow />
+            </StaggerItem>
+          </StaggerContainer>
+        </AnimatedSection>
 
         {/* Image column */}
-        <div className="relative h-[660px] w-full max-w-[528px] max-lg:mx-auto">
+        <AnimatedSection variant="slide-left" delay={0.2} className="relative h-[660px] w-full max-w-[528px] max-lg:mx-auto">
           {/* Studio image */}
           <div className="relative h-full w-full overflow-hidden">
             <Image
@@ -58,18 +69,24 @@ export default function AboutSection() {
           </div>
 
           {/* Quote overlay */}
-          <div
+          <AnimatedSection
+            variant="scale-in"
+            delay={0.6}
             className="absolute -left-5 bottom-[110px] z-10 flex w-[185px] items-center justify-center rounded-xl p-5"
-            style={{
-              background:
-                "linear-gradient(155deg, #4a3526 0%, #7a5c38 50%, #b8935a 100%)",
-            }}
+            as="div"
           >
-            <p className="font-[family-name:var(--font-heading)] text-[length:var(--text-quote)] leading-[1.37] text-ivory whitespace-pre-line">
+            <div
+              className="absolute inset-0 rounded-xl"
+              style={{
+                background:
+                  "linear-gradient(155deg, #4a3526 0%, #7a5c38 50%, #b8935a 100%)",
+              }}
+            />
+            <p className="relative font-[family-name:var(--font-heading)] text-[length:var(--text-quote)] leading-[1.37] text-ivory whitespace-pre-line">
               {about.quote}
             </p>
-          </div>
-        </div>
+          </AnimatedSection>
+        </AnimatedSection>
       </div>
     </section>
   );

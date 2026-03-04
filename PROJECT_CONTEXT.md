@@ -10,7 +10,7 @@
 - **Mi ez:** Egy boutique zenei kiadó (Nolo Sound) single-page marketing weboldala
 - **Ügyfél:** Seeman / Norbert Cs. (Founder/Producer) + Lan V. (Partner)
 - **Cél:** Prémium, sötét-arany vizuális identitás, artists showcase, Spotify/Instagram integráció később
-- **Státusz:** Fázis 1 (Sitebuild) KÉSZ ✅ — Fázis 4 (Animációk) következik
+- **Státusz:** Fázis 1 (Sitebuild) ✅ + Fázis 4 (Animációk) ✅ KÉSZ
 
 ## 2. Tech Stack
 
@@ -25,8 +25,11 @@
 | Deploy | Vercel (Hobby tier) | — |
 | Repo | github.com/kulcsart/nolo-sound | main branch |
 
-**Még NINCS telepítve (következő session):**
-- GSAP + ScrollTrigger (animációk) — VAGY Framer Motion
+**Animáció stack (Fázis 4-ben telepítve):**
+- Framer Motion (entrance/fade animációk)
+- GSAP + @gsap/react + ScrollTrigger (parallax effektek)
+
+**Még NINCS telepítve:**
 - Spotify Web API
 - Instagram Graph API / Facebook API
 
@@ -36,16 +39,21 @@
 Fázis 1 — Sitebuild                    ✅ KÉSZ
 Fázis 2 — Social integráció (IG/FB)    ⏳ Várjuk az ügyfél API adatait
 Fázis 3 — Spotify integráció           ⏳ Várjuk az ügyfél API adatait
-Fázis 4 — Animációk                    🔜 KÖVETKEZŐ
-Fázis 5 — Polish & optimalizálás       ⏳ Később
+Fázis 4 — Animációk                    ✅ KÉSZ
+Fázis 5 — Polish & optimalizálás       🔜 KÖVETKEZŐ
 ```
 
-### Fázis 4 — Animációk (részletes terv)
-14. GSAP + ScrollTrigger setup (vagy Framer Motion — döntés szükséges)
-15. Scroll-trigger animációk (szekciók beúszása)
-16. Parallax effektek (hero háttér, képek)
-17. Micro-interakciók (gombok, hover, kurzor effektek)
-18. Page transition animáció (ha több oldal lesz)
+### Fázis 4 — Animációk (implementálva ✅)
+- **Hibrid megközelítés:** Framer Motion (entrance) + GSAP ScrollTrigger (parallax)
+- **Utility komponensek:** `src/components/animations/` — AnimatedSection, StaggerChildren, ParallaxHero, TextReveal, DividerReveal
+- **Hero:** Parallax háttér (GSAP), logo scale-in, TextReveal headline, DividerReveal, fade-up tagline, CSS bounce scroll indicator
+- **News Feed:** Fade-up header, stagger news cards
+- **About:** Slide-right szöveg oszlop (stagger belső elemek), slide-left kép oszlop, scale-in quote overlay
+- **Artists:** Alternating slide-in (kép/bio váltakozó irány)
+- **Contact:** Slide-right info (stagger details), slide-left form
+- **Footer:** Fade-in
+- **Micro-interakciók:** Nav link underline, news card hover lift, button gold glow, social icon scale, arrow hover, input focus glow
+- **Accessibility:** `prefers-reduced-motion` media query kikapcsolja az animációkat
 
 ## 4. Fájlstruktúra
 
@@ -71,6 +79,12 @@ nolo-sound-web/
 │   │   ├── layout.tsx           # Root layout, fontok, SEO meta
 │   │   └── page.tsx             # Fő oldal — szekciók összeállítása
 │   ├── components/
+│   │   ├── animations/          # ⭐ Fázis 4 — Animációs utility komponensek
+│   │   │   ├── AnimatedSection.tsx  # "use client" — FM fade-up/in/slide wrapper
+│   │   │   ├── StaggerChildren.tsx  # "use client" — FM stagger container + item
+│   │   │   ├── ParallaxHero.tsx     # "use client" — GSAP ScrollTrigger parallax
+│   │   │   ├── TextReveal.tsx       # "use client" — FM soronkénti text reveal
+│   │   │   └── DividerReveal.tsx    # "use client" — FM divider width animáció
 │   │   ├── OwnerCard.tsx        # Avatar + név + szerepkör
 │   │   ├── OwnersRow.tsx        # 2 owner card dividerrel
 │   │   ├── NewsCard.tsx         # Hír kártya (kép + dátum + cím + leírás)
@@ -222,8 +236,16 @@ Tailwind breakpointok: `sm:640px`, `md:768px`, `lg:1024px`
 - Még nincs saját domain — Vercel subdomain-en fut egyelőre
 - Vercel Dashboard → Domains menüben köthető be később
 
-## 11. Fontos döntések a következő session-höz
+## 11. Meghozott döntések
 
-1. **GSAP vs Framer Motion** — GSAP erősebb scroll-animációkhoz (ScrollTrigger), Framer Motion egyszerűbb React integrációval. A design parallax + szekció beúszás → **GSAP javasolt**.
-2. **Animáció prioritás:** Hero parallax → szekciók fade-in → artist kártyák stagger → micro-interakciók
-3. A `"use client"` direktíva jelenleg csak Nav.tsx-en és ContactForm.tsx-en van — animációkhoz további komponensek is client component-té válhatnak.
+1. **Hibrid animáció stack:** Framer Motion (entrance/fade animációk) + GSAP ScrollTrigger (hero parallax). Döntés: 2026-03-04.
+2. **Animáció architektúra:** Server componentek MARADTAK server componentek — animáció wrapper pattern (`AnimatedSection`, `StaggerChildren` stb.) client componentek, amik körbefogják a server-rendered tartalmat.
+3. **`"use client"` komponensek:** Nav.tsx, ContactForm.tsx + 5 animációs wrapper (`src/components/animations/`)
+
+## 12. Következő lépések
+
+1. **Fázis 5 — Polish:** Image optimization (next/image blur placeholder), Lighthouse audit, SEO meta finomhangolás
+2. **Fázis 2 — Social integráció:** Várjuk az ügyfél Instagram/Facebook API adatait
+3. **Fázis 3 — Spotify integráció:** Várjuk az ügyfél Spotify API adatait
+4. **Contact form backend:** API route (Resend vagy hasonló) a form küldéshez
+5. **Custom domain:** Vercel Dashboard → Domains menüben köthető be

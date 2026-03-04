@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ArtistBio from "../ArtistBio";
 import { artists } from "@/lib/content";
+import AnimatedSection from "../animations/AnimatedSection";
 
 export default function ArtistsSection() {
   return (
@@ -20,7 +21,11 @@ export default function ArtistsSection() {
               } ${index > 0 ? "pt-14" : ""}`}
             >
               {/* Artist image */}
-              <div className="relative aspect-square w-full lg:w-1/2">
+              <AnimatedSection
+                variant={isReversed ? "slide-left" : "slide-right"}
+                delay={0.1}
+                className="relative aspect-square w-full lg:w-1/2"
+              >
                 <Image
                   src={artist.image}
                   alt={artist.name}
@@ -28,12 +33,16 @@ export default function ArtistsSection() {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-              </div>
+              </AnimatedSection>
 
               {/* Bio */}
-              <div className="w-full lg:w-1/2">
+              <AnimatedSection
+                variant={isReversed ? "slide-right" : "slide-left"}
+                delay={0.25}
+                className="w-full lg:w-1/2"
+              >
                 <ArtistBio artist={artist} />
-              </div>
+              </AnimatedSection>
             </div>
           );
         })}
