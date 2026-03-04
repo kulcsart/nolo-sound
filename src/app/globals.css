@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/*
+ * NOLO SOUND — Design Tokens
+ * Extracted from nolo.pen design file
+ */
+
+@theme {
+  /* ─── Colors ─── */
+  --color-nearblack: #130F0C;
+  --color-espresso: #2E1F14;
+  --color-coffeebean: #231812;
+  --color-darkbrown: #4A3526;
+  --color-copper: #7A5C38;
+  --color-bronze: #9A7B4F;
+  --color-gold: #B8935A;
+  --color-goldshimmer: #D4A856;
+  --color-warmtan: #C4A87C;
+  --color-rosegold: #C49E7A;
+  --color-sand: #D4C4AE;
+  --color-cream: #EDE3D5;
+  --color-ivory: #FAF3EB;
+
+  /* MuddyWaters opacity variants */
+  --color-muddywaters-6: #B4935A0f;
+  --color-muddywaters-10: #B4935A1a;
+  --color-muddywaters-12: #B4935A1f;
+  --color-muddywaters-15: #B4935A26;
+  --color-muddywaters-20: #B4935A33;
+
+  /* ─── Font families ─── */
+  --font-heading: "Roboto Serif", serif;
+  --font-body: "Roboto Flex", sans-serif;
+
+  /* ─── Font sizes — Desktop ─── */
+  --text-hero: 4rem;       /* 64px */
+  --text-h2: 3rem;         /* 48px */
+  --text-h3: 1.25rem;      /* 20px */
+  --text-quote: 1.3125rem; /* 21px */
+  --text-body: 1rem;       /* 16px */
+  --text-subtitle: 0.9375rem; /* 15px */
+  --text-label: 0.875rem;  /* 14px */
+  --text-date: 0.75rem;    /* 12px */
+  --text-tag: 0.6875rem;   /* 11px */
+  --text-small: 0.625rem;  /* 10px */
+}
+
+/* ─── Base styles ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ivory);
+  color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Responsive font sizes — Tablet ─── */
+@media (max-width: 1024px) {
+  :root {
+    --text-hero: 3.25rem;    /* 52px */
+    --text-h2: 2.375rem;     /* 38px */
+    --text-h3: 1.125rem;     /* 18px */
+    --text-quote: 1.1875rem; /* 19px */
+    --text-body: 0.9375rem;  /* 15px */
+    --text-subtitle: 0.875rem; /* 14px */
+    --text-label: 0.8125rem; /* 13px */
+  }
+}
+
+/* ─── Responsive font sizes — Mobile ─── */
+@media (max-width: 640px) {
+  :root {
+    --text-hero: 2.25rem;   /* 36px */
+    --text-h2: 1.75rem;     /* 28px */
+    --text-h3: 1.0625rem;   /* 17px */
+    --text-quote: 1.125rem; /* 18px */
+    --text-body: 0.875rem;  /* 14px */
+    --text-subtitle: 0.8125rem; /* 13px */
+    --text-label: 0.75rem;  /* 12px */
+    --text-date: 0.6875rem; /* 11px */
+    --text-tag: 0.625rem;   /* 10px */
+    --text-small: 0.5625rem; /* 9px */
+  }
+}
+
+/* ─── Selection ─── */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-nearblack);
+}
