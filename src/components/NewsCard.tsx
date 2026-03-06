@@ -14,7 +14,7 @@ export default function NewsCard({
   image,
 }: NewsCardProps) {
   return (
-    <article className="news-card-hover flex h-full max-w-[360px] shrink-0 cursor-pointer flex-col overflow-hidden rounded p-5">
+    <article className="news-card-hover flex h-full min-w-[262px] max-w-[360px] shrink-0 cursor-pointer flex-col overflow-hidden rounded p-5">
       {/* Image */}
       <div className="relative h-[262px] w-full overflow-hidden rounded bg-espresso">
         <Image
