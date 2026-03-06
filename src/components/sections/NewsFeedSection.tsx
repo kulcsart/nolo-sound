@@ -8,9 +8,9 @@ export default function NewsFeedSection() {
   return (
     <section
       id="news"
-      className="w-full bg-copper px-6 py-[100px] md:px-16 lg:px-[120px]"
+      className="w-full bg-copper px-6 py-[100px] md:px-16"
     >
-      <div className="mx-auto flex w-full flex-col gap-12">
+      <div className="mx-auto flex w-full max-w-[1240px] flex-col gap-12">
         {/* Header row */}
         <div className="flex w-full flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <AnimatedSection variant="fade-up">
@@ -31,14 +31,14 @@ export default function NewsFeedSection() {
             <div className="flex items-center gap-4">
               <a
                 href="#"
-                className="group flex h-12 w-12 items-center justify-center border border-cream text-cream transition-all duration-300 hover:scale-110 hover:border-gold hover:text-gold"
+                className="group flex h-12 w-12 items-center justify-center rounded border border-cream text-cream transition-all duration-300 hover:scale-110 hover:border-gold hover:text-gold"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="group flex h-12 w-12 items-center justify-center border border-cream text-cream transition-all duration-300 hover:scale-110 hover:border-gold hover:text-gold"
+                className="group flex h-12 w-12 items-center justify-center rounded border border-cream text-cream transition-all duration-300 hover:scale-110 hover:border-gold hover:text-gold"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
@@ -48,21 +48,30 @@ export default function NewsFeedSection() {
         </div>
 
         {/* News cards row */}
-        <StaggerContainer
-          staggerDelay={0.15}
-          className="flex w-full gap-6 overflow-x-auto pb-4 max-md:snap-x max-md:snap-mandatory lg:justify-center"
-        >
-          {newsFeed.fallbackItems.map((item) => (
-            <StaggerItem key={item.title} className="max-md:snap-start">
-              <NewsCard
-                date={item.date}
-                title={item.title}
-                description={item.description}
-                image={item.image}
-              />
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+        <div className="relative">
+          <StaggerContainer
+            staggerDelay={0.15}
+            className="-mx-5 flex w-[calc(100%+40px)] items-stretch gap-0 overflow-x-auto px-5 pb-4 max-md:snap-x max-md:snap-mandatory"
+          >
+            {newsFeed.fallbackItems.map((item) => (
+              <StaggerItem key={item.title} className="self-stretch max-md:snap-start">
+                <NewsCard
+                  date={item.date}
+                  title={item.title}
+                  description={item.description}
+                  image={item.image}
+                />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          {/* Scroll fade indicator */}
+          <div
+            className="pointer-events-none absolute right-0 top-0 h-full w-16"
+            style={{
+              background: "linear-gradient(to left, #7A5C38, transparent)",
+            }}
+          />
+        </div>
       </div>
     </section>
   );

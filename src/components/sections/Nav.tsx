@@ -9,7 +9,7 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="flex w-full items-center justify-between px-6 py-6 md:px-16 lg:px-[138px]">
+    <nav className="mx-auto flex w-full max-w-[1240px] items-center justify-between px-6 py-6 md:px-16">
       {/* Logo */}
       <a href="#" className="relative block h-16 w-[156px] shrink-0">
         <Image

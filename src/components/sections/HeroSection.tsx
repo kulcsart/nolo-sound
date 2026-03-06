@@ -16,7 +16,7 @@ export default function HeroSection() {
       }}
     >
       <div
-        className="flex w-full flex-col items-center"
+        className="flex w-full flex-col"
         style={{ minHeight: "100dvh" }}
       >
         <Nav />

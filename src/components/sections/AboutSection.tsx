@@ -8,12 +8,12 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="w-full bg-nearblack px-6 py-[120px] md:px-16 lg:px-[160px]"
+      className="w-full bg-nearblack px-6 py-[120px] md:px-16"
     >
-      <div className="mx-auto flex w-full flex-col gap-32 lg:flex-row lg:items-center lg:justify-center">
+      <div className="mx-auto flex w-full max-w-[1240px] flex-col gap-32 lg:flex-row lg:items-center lg:justify-center">
         {/* Text column — The Vision */}
-        <AnimatedSection variant="slide-right" className="flex max-w-[446px] flex-col gap-10">
-          <StaggerContainer staggerDelay={0.12}>
+        <AnimatedSection variant="slide-right" className="flex max-w-[446px] flex-col">
+          <StaggerContainer staggerDelay={0.12} className="flex flex-col gap-10">
             {/* Label */}
             <StaggerItem>
               <span className="font-[family-name:var(--font-body)] text-[length:var(--text-label)] tracking-[0.125em] text-gold">
@@ -72,7 +72,7 @@ export default function AboutSection() {
           <AnimatedSection
             variant="scale-in"
             delay={0.6}
-            className="absolute -left-5 bottom-[110px] z-10 flex w-[185px] items-center justify-center rounded-xl p-5"
+            className="absolute -bottom-5 -left-5 z-10 flex w-[185px] items-center justify-center rounded-xl p-5"
             as="div"
           >
             <div

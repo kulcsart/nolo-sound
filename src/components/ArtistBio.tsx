@@ -8,10 +8,10 @@ interface ArtistBioProps {
 
 export default function ArtistBio({ artist }: ArtistBioProps) {
   return (
-    <div className="flex w-full flex-col justify-center gap-6 overflow-hidden bg-coffeebean p-16 max-md:p-8">
+    <div className="flex h-full w-full flex-col justify-center gap-6 overflow-hidden bg-coffeebean p-16 max-md:p-8">
       {/* Genre tag */}
       <div className="flex w-full">
-        <span className="border border-muddywaters-20 px-2 py-1 font-[family-name:var(--font-body)] text-[length:var(--text-tag)] tracking-wider text-rosegold">
+        <span className="rounded border border-muddywaters-20 px-2 py-1 font-[family-name:var(--font-body)] text-[length:var(--text-tag)] tracking-wider text-rosegold">
           {artist.tag}
         </span>
       </div>

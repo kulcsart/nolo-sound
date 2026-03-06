@@ -7,9 +7,9 @@ export default function ArtistsSection() {
   return (
     <section
       id="artists"
-      className="w-full bg-espresso px-6 py-20 md:px-16 lg:px-[120px] lg:py-20"
+      className="w-full bg-espresso px-6 py-20 md:px-16 lg:py-20"
     >
-      <div className="mx-auto flex w-full flex-col gap-16 lg:px-12">
+      <div className="mx-auto flex w-full max-w-[1240px] flex-col gap-16">
         {artists.map((artist, index) => {
           const isReversed = index % 2 !== 0;
 
@@ -18,7 +18,7 @@ export default function ArtistsSection() {
               key={artist.name}
               className={`flex w-full flex-col lg:flex-row ${
                 isReversed ? "lg:flex-row-reverse" : ""
-              } ${index > 0 ? "pt-14" : ""}`}
+              }`}
             >
               {/* Artist image */}
               <AnimatedSection
