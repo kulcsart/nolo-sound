@@ -14,12 +14,12 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="w-full bg-nearblack px-6 py-[100px] md:px-16 lg:px-[160px]"
+      className="w-full bg-nearblack px-6 py-[100px] md:px-16"
     >
-      <div className="mx-auto flex w-full flex-col gap-16 lg:flex-row lg:justify-center">
+      <div className="mx-auto flex w-full max-w-[1240px] flex-col gap-16 lg:flex-row lg:px-16">
         {/* Info column */}
-        <AnimatedSection variant="slide-right" className="flex flex-1 flex-col gap-7">
-          <StaggerContainer staggerDelay={0.1}>
+        <AnimatedSection variant="slide-right" className="flex flex-1 flex-col">
+          <StaggerContainer staggerDelay={0.1} className="flex flex-col gap-10">
             {/* Label */}
             <StaggerItem>
               <span className="font-[family-name:var(--font-body)] text-[length:var(--text-label)] tracking-[0.125em] text-warmtan">

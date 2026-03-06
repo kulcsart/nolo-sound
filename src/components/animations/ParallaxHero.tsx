@@ -52,7 +52,7 @@ export default function ParallaxHero({
         style={style}
       />
       {/* Content layer */}
-      <div className="relative z-10">
+      <div className="relative z-10 w-full">
         {children}
       </div>
     </section>

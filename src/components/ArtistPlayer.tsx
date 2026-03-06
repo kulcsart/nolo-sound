@@ -13,10 +13,10 @@ export default function ArtistPlayer({
   progress = 35,
 }: ArtistPlayerProps) {
   return (
-    <div className="flex w-full items-center gap-4 border-l-2 border-gold bg-espresso p-4">
+    <div className="flex w-full items-center gap-4 rounded border-l-2 border-gold bg-espresso p-4">
       {/* Play button */}
       <button
-        className="flex h-10 w-10 shrink-0 items-center justify-center bg-darkbrown transition-colors hover:bg-copper"
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-darkbrown transition-colors hover:bg-copper"
         aria-label={`Play ${trackName}`}
       >
         <Play className="h-4 w-4 fill-gold text-gold" />

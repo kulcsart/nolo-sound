@@ -14,9 +14,9 @@ export default function NewsCard({
   image,
 }: NewsCardProps) {
   return (
-    <article className="news-card-hover flex w-[262px] shrink-0 cursor-pointer flex-col gap-4">
+    <article className="news-card-hover flex h-full max-w-[360px] shrink-0 cursor-pointer flex-col overflow-hidden rounded p-5">
       {/* Image */}
-      <div className="relative h-[262px] w-full overflow-hidden bg-espresso">
+      <div className="relative h-[262px] w-full overflow-hidden rounded bg-espresso">
         <Image
           src={image}
           alt={title}
@@ -27,7 +27,7 @@ export default function NewsCard({
       </div>
 
       {/* Info */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-1 flex-col gap-3 pt-5">
         <span className="font-[family-name:var(--font-body)] text-[length:var(--text-date)] font-semibold text-warmtan">
           {date}
         </span>
